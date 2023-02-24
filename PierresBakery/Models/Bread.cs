@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace PierresBakery.Models
 {
   public class Bread{
-    public int NumberOfBreads {get;set;}
+    private int NumberOfBreads;
     public static int CostTotal {get;set;} = 0;
     private static List<Bread> _instances = new List<Bread> {};
 
@@ -23,6 +23,11 @@ namespace PierresBakery.Models
       numBreads += order.NumberOfBreads;
     }
     CostTotal += ((5*numBreads)-(5*(numBreads/3)));
+  }
+
+  public static void ClearAll()
+  {
+    _instances.Clear();
   }
   }
 }

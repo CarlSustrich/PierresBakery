@@ -26,11 +26,17 @@ namespace PierresBakery
         string response = Console.ReadLine().ToLower();
         if (UserInterpretation.meansBread.Contains(response))
         {
+          Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
           Program.OrderBread();
         }
         else if (UserInterpretation.meansPastry.Contains(response))
         {
+          Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
           Program.OrderPastry();
+        }
+        else if (UserInterpretation.meansDone.Contains(response))
+        {
+          Program.CheckOut();
         }
         else 
         {
@@ -45,6 +51,7 @@ namespace PierresBakery
         Program.OrderWhat();
       }
     }
+
     static void OrderBread()
     {
       Console.WriteLine("Bread loaves are $5 each. Buy 2, get 1 free");
@@ -62,20 +69,9 @@ namespace PierresBakery
         Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         Program.OrderBread();
       }
-      Console.WriteLine($"Your current bread total is {Bread.CostTotal}.");
-      Console.WriteLine($"Your current bread total is {Pastry.CostTotal}.");
-      Console.WriteLine("Would you like to order anything else?");
-      string orderMoar = Console.ReadLine().ToLower();
-      if (UserInterpretation.meansYes.Contains(orderMoar))
-      {
-        Program.OrderWhat();
-      }
-      else
-      {
-        Program.CheckOut();
-      }
-
+      Program.OrderMoar();
     }
+
     static void OrderPastry()
     {
       Console.WriteLine("Pastries are $2 each. Buy 3, get 1 free");
@@ -93,22 +89,36 @@ namespace PierresBakery
         Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         Program.OrderPastry();
       }
+      Program.OrderMoar();
+    }
+
+    static void OrderMoar()
+    {
+      Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
       Console.WriteLine($"Your current bread total is {Bread.CostTotal}.");
       Console.WriteLine($"Your current bread total is {Pastry.CostTotal}.");
       Console.WriteLine("Would you like to order anything else?");
       string orderMoar = Console.ReadLine().ToLower();
       if (UserInterpretation.meansYes.Contains(orderMoar))
       {
+        Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         Program.OrderWhat();
       }
       else
       {
+        Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         Program.CheckOut();
       }
     }
+
     static void CheckOut()
     {
-      //
+      Console.WriteLine($"Breads: ${Bread.CostTotal}");
+      Console.WriteLine($"Pastries: ${Pastry.CostTotal}");
+      Console.WriteLine("------------");
+      Console.WriteLine($"${Pastry.CostTotal + Bread.CostTotal}");
+      Console.WriteLine("Plz enter all your card info, promise I'm not shady");
+      Console.WriteLine("Kidding, please don't. Program ending now");
     }
   }
 }

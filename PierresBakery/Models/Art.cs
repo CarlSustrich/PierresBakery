@@ -2,7 +2,7 @@ using System;
 
 namespace PierresBakery.Models
 {
-  public class Art
+  public abstract class Art
   {
     public static string WelcomeBanner = @" ███████████   ███                                               
 ░░███░░░░░███ ░░░                                                
