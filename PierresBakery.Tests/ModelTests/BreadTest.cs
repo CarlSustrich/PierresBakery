@@ -9,7 +9,7 @@ namespace PierresBakery.TestTools{
   {
     public void Dispose()
     {
-      Bread.ClearAll();
+      Bakery.ClearAll();
     }
 
     [TestMethod]
@@ -24,8 +24,8 @@ namespace PierresBakery.TestTools{
     {
       int expectedTotal = 5;
       Bread newBreadOrder = new Bread(1);
-      Bread.BreadCost();
-      Assert.AreEqual(expectedTotal, Bread.CostTotal);
+      Bakery.CalculateCost();
+      Assert.AreEqual(expectedTotal, Bakery.BreadTotal);
     }
 
     [TestMethod]
@@ -33,8 +33,8 @@ namespace PierresBakery.TestTools{
     {
       int expectedTotal = 10;
       Bread newBreadOrder = new Bread(2);
-      Bread.BreadCost();
-      Assert.AreEqual(expectedTotal, Bread.CostTotal);
+      Bakery.CalculateCost();
+      Assert.AreEqual(expectedTotal, Bakery.BreadTotal);
     }
 
     [TestMethod]
@@ -42,8 +42,8 @@ namespace PierresBakery.TestTools{
     {
       int expectedTotal = 10;
       Bread newBreadOrder = new Bread(3);
-      Bread.BreadCost();
-      Assert.AreEqual(expectedTotal, Bread.CostTotal);
+      Bakery.CalculateCost();
+      Assert.AreEqual(expectedTotal, Bakery.BreadTotal);
     }
 
     [TestMethod]
@@ -51,9 +51,9 @@ namespace PierresBakery.TestTools{
     {
       int expectedTotal = 5;
       Bread newBreadOrder = new Bread(1);
-      Bread.BreadCost();
-      Bread.BreadCost();
-      Assert.AreEqual(expectedTotal, Bread.CostTotal);
+      Bakery.CalculateCost();
+      Bakery.CalculateCost();
+      Assert.AreEqual(expectedTotal, Bakery.BreadTotal);
     }
     
   }

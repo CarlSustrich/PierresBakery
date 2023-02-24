@@ -60,7 +60,7 @@ namespace PierresBakery
       if (int.TryParse(response, out int numResponse))
       {
         Bread breadOrder = new Bread(numResponse);
-        Bread.BreadCost();
+        Bakery.CalculateCost();
       }
       else
       {
@@ -80,7 +80,7 @@ namespace PierresBakery
       if (int.TryParse(response, out int numResponse))
       {
         Pastry pastryOrder = new Pastry(numResponse);
-        Pastry.PastryCost();
+        Bakery.CalculateCost();
       }
       else
       {
@@ -95,8 +95,8 @@ namespace PierresBakery
     static void OrderMoar()
     {
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
-      Console.WriteLine($"Your current bread total is {Bread.CostTotal}.");
-      Console.WriteLine($"Your current bread total is {Pastry.CostTotal}.");
+      Console.WriteLine($"Your current bread total is {Bakery.BreadTotal}.");
+      Console.WriteLine($"Your current bread total is {Bakery.PastryTotal}.");
       Console.WriteLine("Would you like to order anything else?");
       string orderMoar = Console.ReadLine().ToLower();
       if (UserInterpretation.meansYes.Contains(orderMoar))
@@ -113,10 +113,10 @@ namespace PierresBakery
 
     static void CheckOut()
     {
-      Console.WriteLine($"Breads: ${Bread.CostTotal}");
-      Console.WriteLine($"Pastries: ${Pastry.CostTotal}");
+      Console.WriteLine($"Breads: ${Bakery.BreadTotal}");
+      Console.WriteLine($"Pastries: ${Bakery.PastryTotal}");
       Console.WriteLine("------------");
-      Console.WriteLine($"${Pastry.CostTotal + Bread.CostTotal}");
+      Console.WriteLine($"${Bakery.BreadTotal + Bakery.PastryTotal}");
       Console.WriteLine("Plz enter all your card info, promise I'm not shady");
       Console.WriteLine("Kidding, please don't. Program ending now");
     }

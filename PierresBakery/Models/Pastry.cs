@@ -3,32 +3,15 @@ using System.Collections.Generic;
 
 namespace PierresBakery.Models
 {
-  public class Pastry{
-    private int NumberOfPastries;
-    public static int CostTotal {get;set;} = 0;
-    private static List<Pastry> _instances = new List<Pastry> {};
-
-  public Pastry(int num)
+  public class Pastry : Bakery
   {
-    NumberOfPastries = num;
-    _instances.Add(this);
-  }
 
-  public static void PastryCost()
-  {
-    int numPastry = 0;
-    CostTotal = 0;
-    foreach (Pastry order in _instances)
+    public Pastry(int num)
     {
-      numPastry += order.NumberOfPastries;
+      FreebieModifier = 3;
+      CostPerItem = 5;
+      NumberOfItems = num;
+      Bakery.AddPastry(this);
     }
-    CostTotal += ((2*numPastry)-(2*(numPastry/4)));
-  }
-
-  public static void ClearAll()
-  {
-    _instances.Clear();
-  }
-
   }
 }

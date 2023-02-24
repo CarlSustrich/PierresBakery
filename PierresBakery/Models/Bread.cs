@@ -3,31 +3,15 @@ using System.Collections.Generic;
 
 namespace PierresBakery.Models 
 {
-  public class Bread{
-    private int NumberOfBreads;
-    public static int CostTotal {get;set;} = 0;
-    private static List<Bread> _instances = new List<Bread> {};
-
-  public Bread(int num)
+  public class Bread : Bakery
   {
-    NumberOfBreads = num;
-    _instances.Add(this);
-  }
 
-  public static void BreadCost()
-  {
-    int numBreads = 0;
-    CostTotal = 0;
-    foreach (Bread order in _instances)
+    public Bread(int num)
     {
-      numBreads += order.NumberOfBreads;
+      FreebieModifier = 3;
+      CostPerItem = 5;
+      NumberOfItems = num;
+      Bakery.AddBread(this);
     }
-    CostTotal += ((5*numBreads)-(5*(numBreads/3)));
-  }
-
-  public static void ClearAll()
-  {
-    _instances.Clear();
-  }
   }
 }
