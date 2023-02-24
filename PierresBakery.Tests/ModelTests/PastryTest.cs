@@ -9,7 +9,7 @@ namespace PierresBakery.TestTools{
   {
     public void Dispose()
     {
-      Bakery.ClearAll();
+      Bakery.ClearPastry();
     }
 
     [TestMethod]

@@ -12,57 +12,46 @@ namespace PierresBakery.Models
     private static List<Pastry> _pastryInstances =new List<Pastry>();
     private static List<Bread> _breadInstances = new List<Bread>();
 
-
-
-    public List<Bread> BreadInstances
-    {
-      get 
-      {return _breadInstances; }
-    }
-
-    public List<Pastry> PastryInstances
-    {
-      get
-      {return _pastryInstances; }
-    }
-
     public static void AddPastry(Pastry pastry)
     {
-      PastryInstances.Add(pastry);
+      _pastryInstances.Add(pastry);
     }
 
     public static void AddBread(Bread bread)
     {
-      BreadInstances.Add(bread);
+      _breadInstances.Add(bread);
     }
 
     public static void CalculateCost()
     {
-      int numBreads = 0;
-      int numPastries = 0;
+      int numItems = 0;
       PastryTotal = 0;
       BreadTotal = 0;
 
-      foreach (Bread order in BreadInstances)
+      foreach (Bread order in _breadInstances)
       {
-        numBreads = 0;
-        numBreads += order.NumberOfItems;
-        BreadTotal += ((order.CostPerItem*numBreads)-(order.CostPerItem*(numBreads/order.FreebieModifier)));
+        numItems = 0;
+        numItems += order.NumberOfItems;
+        BreadTotal += ((order.CostPerItem*numItems)-(order.CostPerItem*(numItems/order.FreebieModifier)));
       }
     
-      foreach (Pastry order in PastryInstances)
+      foreach (Pastry order in _pastryInstances)
       {
-        numPastries = 0;
-        numPastries += order.NumberOfItems;
-        PastryTotal += ((order.CostPerItem*numBreads)-(order.CostPerItem*(numBreads/order.FreebieModifier)));
+        numItems = 0;
+        numItems += order.NumberOfItems;
+        PastryTotal += ((order.CostPerItem*numItems)-(order.CostPerItem*(numItems/order.FreebieModifier)));
       }
-
     }
 
-    public static void ClearAll()
+    public static void ClearBread()
     {
-      PastryInstances.Clear();
-      BreadInstances.Clear();
+      _breadInstances.Clear();
     }
+
+    public static void ClearPastry()
+    {
+      _pastryInstances.Clear();
+    }
+    
   }
 }

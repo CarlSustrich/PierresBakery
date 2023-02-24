@@ -5,13 +5,12 @@ namespace PierresBakery.Models
 {
   public class Pastry : Bakery
   {
-
     public Pastry(int num)
     {
-      FreebieModifier = 3;
-      CostPerItem = 5;
+      FreebieModifier = 4;
+      CostPerItem = 2;
       NumberOfItems = num;
-      Bakery.AddPastry(this);
+      AddPastry(this);
     }
   }
 }
