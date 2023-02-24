@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+ 
 namespace PierresBakery.Models 
 {
   public abstract class Bakery{
@@ -52,6 +52,6 @@ namespace PierresBakery.Models
     {
       _pastryInstances.Clear();
     }
-    
+
   }
 }

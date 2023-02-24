@@ -97,7 +97,7 @@ namespace PierresBakery
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
       Console.WriteLine($"Your current bread total is {Bakery.BreadTotal}.");
       Console.WriteLine($"Your current bread total is {Bakery.PastryTotal}.");
-      Console.WriteLine("Would you like to order anything else?");
+      Console.WriteLine("Would you like to add more items to your order?");
       string orderMoar = Console.ReadLine().ToLower();
       if (UserInterpretation.meansYes.Contains(orderMoar))
       {
