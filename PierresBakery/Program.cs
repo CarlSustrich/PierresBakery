@@ -65,7 +65,7 @@ namespace PierresBakery
       else
       {
         Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
-        Console.WriteLine($"Your input, {response}, could not be understood. Please enter your response using numbers, not letters.");
+        Console.WriteLine($"Your input, {response}, could not be understood. Please enter your response using whole numbers, no letters.");
         Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         Program.OrderBread();
       }
